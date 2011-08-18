@@ -1,0 +1,2 @@
+PRODUCT_MAKEFILES := \
+	$(LOCAL_DIR)/am335xevm.mk
