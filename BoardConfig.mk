@@ -1,4 +1,4 @@
-# Beagleboard configuration
+# AM335x configuration
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_KERNEL := true
@@ -30,7 +30,7 @@ WPA_SUPPLICANT_VERSION      := VER_0_6_X
 WIFI_DRIVER_MODULE_PATH     := "/system/etc/wifi/wl12xx_sdio.ko"
 WIFI_DRIVER_MODULE_ARG      := ""
 WIFI_DRIVER_MODULE_NAME     := "wl12xx_sdio"
-WIFI_DRIVER_FW_STA_PATH     := "/system/etc/firmware/ti-connectivity/wl1271-fw-2.bin"
+WIFI_DRIVER_FW_STA_PATH     := "/system/etc/firmware/ti-connectivity/wl128x-fw.bin"
 endif
 
 # Bluetooth
