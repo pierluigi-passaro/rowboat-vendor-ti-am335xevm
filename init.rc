@@ -196,10 +196,6 @@ loglevel 3
     mkdir /data/misc/udhcpd 0777 wifi wifi
     chown dhcp dhcp /data/misc/dhcp
 
-    # wlan driver helper modules
-#    insmod /system/etc/wifi/sdio.ko
-#    insmod /system/etc/wifi/bmtrace.ko
-
     # create dalvik-cache and double-check the perms
     mkdir /data/dalvik-cache 0771 system system
     chown system system /data/dalvik-cache
@@ -486,7 +482,7 @@ service btpwr /wl1271bt_enable /dev/ttyS1
     disabled
     oneshot
 
-service hciattach /system/bin/hciattach -n /dev/ttyS1 texas 3000000
+service hciattach /system/bin/hciattach -n /dev/ttyO1 texas 115200
     user root
 
 # changing user to root from bluetooth is a potential security issue

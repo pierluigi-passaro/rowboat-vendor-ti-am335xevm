@@ -20,3 +20,18 @@ TARGET_CPU_ABI2 := armeabi
 ARCH_ARM_HAVE_NEON := true
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER :=true
+
+USES_TI_WL1271_COMPAT := true
+
+# WLAN
+ifdef USES_TI_WL1271_COMPAT
+BOARD_WPA_SUPPLICANT_DRIVER := WEXT
+WPA_SUPPLICANT_VERSION      := VER_0_6_X
+WIFI_DRIVER_MODULE_PATH     := "/system/etc/wifi/wl12xx_sdio.ko"
+WIFI_DRIVER_MODULE_ARG      := ""
+WIFI_DRIVER_MODULE_NAME     := "wl12xx_sdio"
+WIFI_DRIVER_FW_STA_PATH     := "/system/etc/firmware/ti-connectivity/wl1271-fw-2.bin"
+endif
+
+# Bluetooth
+BOARD_HAVE_BLUETOOTH := true
