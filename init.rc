@@ -370,6 +370,9 @@ on property:persist.service.adb.enable=1
 on property:persist.service.adb.enable=0
     stop adbd
 
+# service to enable Android USB gadgets and load g_zero module to enable USB HOST mode
+service am335x_usb /system/bin/usb/rc.usb start
+
 service servicemanager /system/bin/servicemanager
     user system
     critical
