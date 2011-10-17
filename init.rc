@@ -353,6 +353,10 @@ service console /system/bin/sh
 
 service pvr /system/bin/sgx/rc.pvr start
 
+# service to enable Android USB gadgets and load g_zero module to enable USB HOST mode
+service am335x_usb /system/bin/usb/rc.usb start
+    oneshot
+
 # service to load base compat wlan kernel modules
 service wl12xx /system/bin/wifi/rc.wifi start
 
@@ -369,9 +373,6 @@ on property:persist.service.adb.enable=1
 
 on property:persist.service.adb.enable=0
     stop adbd
-
-# service to enable Android USB gadgets and load g_zero module to enable USB HOST mode
-service am335x_usb /system/bin/usb/rc.usb start
 
 service servicemanager /system/bin/servicemanager
     user system
