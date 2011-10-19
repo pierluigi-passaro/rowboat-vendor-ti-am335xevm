@@ -2,6 +2,9 @@
 
 load_usb()
 {
+	# Inserting dummy module to enable usb1 port
+	insmod /system/bin/usb/g_zero.ko
+
 	# Enable Android gadgets functionality on usb0 port
 	echo 0       > /sys/class/android_usb/android0/enable
 	echo adb,acm > /sys/class/android_usb/android0/functions
@@ -12,8 +15,6 @@ load_usb()
 	echo c > /proc/driver/musb_hdrc.0
 	echo C > /proc/driver/musb_hdrc.0
 
-	# Inserting dummy module to enable usb1 port
-	insmod /system/bin/usb/g_zero.ko
 	return 0;
 }
 
