@@ -1,0 +1,7 @@
+#!/system/bin/sh
+
+case "$1" in
+"start")
+	setprop net.dns1 `getprop dhcp.eth0.dns1`
+	;;
+esac

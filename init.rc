@@ -376,6 +376,12 @@ on property:persist.service.adb.enable=1
 on property:persist.service.adb.enable=0
     stop adbd
 
+on property:dhcp.eth0.reason=BOUND
+    start setdns
+
+service setdns /system/bin/rc.setdns start
+    oneshot
+
 service servicemanager /system/bin/servicemanager
     user system
     critical
@@ -505,4 +511,7 @@ service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 -c/data/misc/wi
 #service dhcpcd_${iface} /system/bin/dhcpcd -o domain_name_servers -ABKL ${iface}
 service dhcpcd_wlan0 /system/bin/dhcpcd  -ABKL wlan0
     disabled
+    oneshot
+
+service dhcpcd_eth0 /system/bin/dhcpcd  -ABKL eth0
     oneshot
