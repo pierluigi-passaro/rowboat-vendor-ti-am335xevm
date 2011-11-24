@@ -2,7 +2,7 @@ PRODUCT_PACKAGES := \
 	ApiDemos      \
 	SoundRecorder \
 	GeneralRunner \
-	EvilSkull \
+	FileManager \
 	Vase \
 	lights.$(TARGET_PRODUCT) \
 	alsa.$(TARGET_PRODUCT)
