@@ -25,12 +25,12 @@ USES_TI_WL1271_COMPAT := true
 
 # WLAN
 ifdef USES_TI_WL1271_COMPAT
-BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-WPA_SUPPLICANT_VERSION      := VER_0_6_X
+BOARD_WLAN_DEVICE             := wl12xx_mac80211
+BOARD_SOFTAP_DEVICE           := wl12xx_mac80211
+WPA_SUPPLICANT_VERSION      := VER_0_8_X
+BOARD_WPA_SUPPLICANT_DRIVER   := NL80211
 WIFI_DRIVER_MODULE_PATH     := "/system/etc/wifi/wl12xx_sdio.ko"
-WIFI_DRIVER_MODULE_ARG      := ""
 WIFI_DRIVER_MODULE_NAME     := "wl12xx_sdio"
-WIFI_DRIVER_FW_STA_PATH     := "/system/etc/firmware/ti-connectivity/wl128x-fw.bin"
 endif
 
 # Bluetooth
