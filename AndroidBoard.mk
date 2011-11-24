@@ -28,6 +28,9 @@ endif
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/vold.fstab:system/etc/vold.fstab
 
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/rc.setdns:system/bin/rc.setdns
+
 # Bootsound
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/boot.wav:system/media/audio/ui/boot.wav
