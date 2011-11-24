@@ -2,7 +2,7 @@ PRODUCT_PACKAGES := \
 	ApiDemos      \
 	SoundRecorder \
 	GeneralRunner \
-	FileManager \
+	FileManager-1.1.6 \
 	Vase \
 	lights.$(TARGET_PRODUCT) \
 	alsa.$(TARGET_PRODUCT)
