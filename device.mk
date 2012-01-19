@@ -38,6 +38,12 @@ PRODUCT_PACKAGES += \
 	libaudioutils
 
 PRODUCT_PACKAGES += \
+        audio.primary.am335xevm \
+        tinycap \
+        tinymix \
+        tinyplay
+
+PRODUCT_PACKAGES += \
 	dhcpcd.conf \
 	TQS_D_1.7.ini \
 	calibrator
