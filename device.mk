@@ -19,6 +19,11 @@ PRODUCT_COPY_FILES := \
 	device/ti/am335xevm/init.rc:root/init.rc \
 	device/ti/am335xevm/vold.fstab:system/etc/vold.fstab
 
+# KeyPads
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    $(LOCAL_PATH)/matrix-keypad.kl:system/usr/keylayout/matrix-keypad.kl
+
 PRODUCT_PROPERTY_OVERRIDES := \
 	wifi.interface=wlan0 \
 	hwui.render_dirty_regions=false
