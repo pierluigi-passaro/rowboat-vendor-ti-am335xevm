@@ -19,6 +19,7 @@
 #BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := true
 BOARD_EGL_CFG := device/ti/am335xevm/egl.cfg
+BOARD_USES_OMAP3_LIGHTS := true
 
 # Use the non-open-source parts, if they're present
 #-include vendor/ti/panda/BoardConfigVendor.mk
