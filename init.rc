@@ -477,3 +477,7 @@ service dumpstate /system/bin/dumpstate -s
     socket dumpstate stream 0660 shell log
     disabled
     oneshot
+
+service dhcpcd_eth0 /system/bin/dhcpcd -ABKL
+    disabled
+    oneshot
