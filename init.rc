@@ -242,6 +242,8 @@ on boot
 # PWM-Backlight for display brightness
     chmod 0666 /sys/class/backlight/pwm-backlight/brightness
 
+# Create directory for dhcpcd data
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
 
 # Define TCP buffer sizes for various networks
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
