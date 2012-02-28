@@ -337,6 +337,10 @@ service ueventd /sbin/ueventd
 service console /system/bin/sh
     console
 
+service pvr /system/bin/sgx/rc.pvr start
+    class core
+    oneshot
+
 on property:ro.debuggable=1
     start console
 
