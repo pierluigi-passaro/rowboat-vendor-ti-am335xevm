@@ -17,7 +17,8 @@
 
 PRODUCT_COPY_FILES := \
 	device/ti/am335xevm/init.rc:root/init.rc \
-	device/ti/am335xevm/vold.fstab:system/etc/vold.fstab
+	device/ti/am335xevm/vold.fstab:system/etc/vold.fstab \
+	frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml
 
 # KeyPads
 PRODUCT_COPY_FILES += \
@@ -58,3 +59,4 @@ PRODUCT_PACKAGES += \
 	make_ext4fs
 
 $(call inherit-product, frameworks/base/build/tablet-dalvik-heap.mk)
+$(call inherit-product-if-exists, hardware/ti/wlan/mac80211/firmware/wl12xx_wlan_fw_products.mk)
