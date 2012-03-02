@@ -22,6 +22,7 @@ loglevel 3
     export ANDROID_ASSETS /system/app
     export ANDROID_DATA /data
     export ASEC_MOUNTPOINT /mnt/asec
+    export EXTERNAL_STORAGE /mnt/sdcard
     export LOOP_MOUNTPOINT /mnt/obb
     export BOOTCLASSPATH /system/framework/core.jar:/system/framework/core-junit.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/apache-xml.jar:/system/framework/filterfw.jar
 
@@ -251,6 +252,12 @@ on boot
     insmod /system/lib/modules/cfg80211.ko
     insmod /system/lib/modules/mac80211.ko
     insmod /system/lib/modules/wl12xx.ko debug_level=0x63c00
+
+#Owners, Modes for Bluetooth
+    chmod 0660 /dev/ttyO1
+    chown bluetooth bluetooth /dev/ttyO1
+    chmod 0660 /sys/class/rfkill/rfkill0/state
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
 
 # Define TCP buffer sizes for various networks
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
@@ -501,3 +508,9 @@ service dhcpcd_wlan0 /system/bin/dhcpcd -ABKL
 service iprenew_wlan0 /system/bin/dhcpcd -n
     disabled
     oneshot
+
+#shared transport user space mgr service for Bluetooth, FM and GPS
+service uim /system/bin/uim-sysfs
+    class core
+    user bluetooth
+    group bluetooth net_bt_admin

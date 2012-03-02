@@ -20,6 +20,12 @@ PRODUCT_COPY_FILES := \
 	device/ti/am335xevm/vold.fstab:system/etc/vold.fstab \
 	frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml
 
+# Bluetooth support
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
+	system/bluetooth/data/main.nonsmartphone.conf:system/etc/bluetooth/main.conf
+
+
 # KeyPads
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
@@ -43,6 +49,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	libaudioutils
 
+# Bluetooth A2DP audio support
+PRODUCT_PACKAGES += \
+	audio.a2dp.default
+
 PRODUCT_PACKAGES += \
         audio.primary.am335xevm \
         tinycap \
@@ -58,5 +68,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	make_ext4fs
 
+# BlueZ test tools
+PRODUCT_PACKAGES += \
+	hciconfig \
+	hcitool
+
 $(call inherit-product, frameworks/base/build/tablet-dalvik-heap.mk)
 $(call inherit-product-if-exists, hardware/ti/wlan/mac80211/firmware/wl12xx_wlan_fw_products.mk)
+$(call inherit-product-if-exists, hardware/ti/wpan/wl12xx-bluetooth/wl12xx_bt_products.mk)
