@@ -25,6 +25,10 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
 	system/bluetooth/data/main.nonsmartphone.conf:system/etc/bluetooth/main.conf
 
+# These are the hardware-specific features
+PRODUCT_COPY_FILES += \
+   frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+   frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml
 
 # KeyPads
 PRODUCT_COPY_FILES += \
@@ -63,6 +67,11 @@ PRODUCT_PACKAGES += \
 	dhcpcd.conf \
 	TQS_D_1.7.ini \
 	calibrator
+
+
+# Sensors
+PRODUCT_PACKAGES += \
+   sensors.am335xevm
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
