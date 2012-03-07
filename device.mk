@@ -81,6 +81,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	hciconfig \
 	hcitool
+# Amazed Application : Accelerometer based game
+# Temperature Widget
+PRODUCT_PACKAGES += \
+	Amazed \
+	TemperatureWidget
+
+
 
 $(call inherit-product, frameworks/base/build/tablet-dalvik-heap.mk)
 $(call inherit-product-if-exists, hardware/ti/wlan/mac80211/firmware/wl12xx_wlan_fw_products.mk)
