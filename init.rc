@@ -179,7 +179,7 @@ on post-fs-data
     chmod 0660 /sys/class/android_usb/android0/f_rndis/ethaddr
 
 	# Accelerometer sensor lis3lv02d-->input0
-	chmod 0666 /sys/class/input/input0/poll
+	chmod 0666 /sys/class/input/input1/poll
 
 	# Light sensor tsl2550-->input0
     chmod 0666 /sys/class/input/input0/poll
