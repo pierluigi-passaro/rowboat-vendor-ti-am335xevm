@@ -26,7 +26,8 @@
 #include "AccelSensor.h"
 
 #define FETCH_FULL_EVENT_BEFORE_RETURN 1
-
+/* default poll interval is 50 ms */
+#define DEFAULT_POLL_INTERVAL 50
 
 int prev_delay_ms = 0;
 /* To handle am335x accelerometer which is an input_polled_device in kernel.
@@ -109,14 +110,16 @@ int AccelSensor::enable(int32_t, int en) {
         if (fd >= 0) {
             char buf[80];
             if (flags) {
+				/* if delay is zero and device is getting enable then set default to 50 ms*/
+				prev_delay_ms = prev_delay_ms !=0 ? prev_delay_ms:DEFAULT_POLL_INTERVAL;
                 sprintf(buf, "%d", prev_delay_ms);
-                mEnabled = flags;
                 setInitialState();
             } else {
                 sprintf(buf, "%d", 0);
             }
             write(fd, buf, strlen(buf)+1);
             close(fd);
+			mEnabled = flags;
             return 0;
         }
         return -1;
@@ -132,6 +135,11 @@ bool AccelSensor::hasPendingEvents() const {
 int AccelSensor::setDelay(int32_t handle, int64_t delay_ns)
 {
     int fd;
+	if(!mEnabled){
+		int32_t delay_ms = (int32_t)delay_ns/1000000;
+		prev_delay_ms = delay_ms;
+		return 0;
+	}
     strcpy(&input_sysfs_path[input_sysfs_path_len], ACCEL_POLL);
     fd = open(input_sysfs_path, O_RDWR);
     if (fd >= 0) {
