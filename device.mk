@@ -18,7 +18,8 @@
 PRODUCT_COPY_FILES := \
 	device/ti/am335xevm/init.rc:root/init.rc \
 	device/ti/am335xevm/vold.fstab:system/etc/vold.fstab \
-	frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml
+	frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+	frameworks/base/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
 
 # Bluetooth support
 PRODUCT_COPY_FILES += \
