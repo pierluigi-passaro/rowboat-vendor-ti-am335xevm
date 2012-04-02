@@ -89,7 +89,8 @@ PRODUCT_PACKAGES += \
 	Amazed \
 	TemperatureWidget
 
-
+PRODUCT_PACKAGES += \
+	FileManager-1.1.6
 
 $(call inherit-product, frameworks/base/build/tablet-dalvik-heap.mk)
 $(call inherit-product-if-exists, hardware/ti/wlan/mac80211/firmware/wl12xx_wlan_fw_products.mk)
