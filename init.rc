@@ -262,7 +262,9 @@ on boot
     insmod /system/lib/modules/compat.ko
     insmod /system/lib/modules/cfg80211.ko
     insmod /system/lib/modules/mac80211.ko
-    insmod /system/lib/modules/wl12xx.ko debug_level=0x63c00
+    insmod /system/lib/modules/wlcore.ko
+    insmod /system/lib/modules/wl12xx.ko
+    insmod /system/lib/modules/wl18xx.ko
 
 #Owners, Modes for Bluetooth
     chmod 0660 /dev/ttyO1

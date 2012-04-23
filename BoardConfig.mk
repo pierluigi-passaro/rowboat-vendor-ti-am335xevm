@@ -67,8 +67,15 @@ BOARD_SOFTAP_DEVICE              := wl12xx_mac80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wl12xx
 BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_wl12xx
+
+ifeq ($(WILINK), wl18xx)
+WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/wlcore_sdio.ko"
+WIFI_DRIVER_MODULE_NAME          := "wlcore_sdio"
+else
 WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/wl12xx_sdio.ko"
 WIFI_DRIVER_MODULE_NAME          := "wl12xx_sdio"
+endif
+
 WIFI_FIRMWARE_LOADER             := ""
 COMMON_GLOBAL_CFLAGS += -DUSES_TI_MAC80211
 endif
