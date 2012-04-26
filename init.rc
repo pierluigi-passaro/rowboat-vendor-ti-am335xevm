@@ -285,6 +285,9 @@ on boot
 # Power Management Patches
     setprop hw.nopm true
 
+# Using landscape lcd
+    setprop lcd.landscape true
+
 # Set this property so surfaceflinger is not started by system_init
     setprop system_init.startsurfaceflinger 0
 
