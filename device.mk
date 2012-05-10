@@ -17,6 +17,7 @@
 
 PRODUCT_COPY_FILES := \
 	device/ti/am335xevm/init.rc:root/init.rc \
+	device/ti/am335xevm/ueventd.am335xevm.rc:root/ueventd.am335xevm.rc \
 	device/ti/am335xevm/vold.fstab:system/etc/vold.fstab \
 	frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
 	frameworks/base/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
@@ -74,6 +75,12 @@ PRODUCT_PACKAGES += \
 # Sensors
 PRODUCT_PACKAGES += \
    sensors.am335xevm
+
+#Camera
+PRODUCT_PACKAGES += \
+        camera.omap3 \
+        Camera
+
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \

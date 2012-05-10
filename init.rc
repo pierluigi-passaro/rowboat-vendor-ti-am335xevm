@@ -35,6 +35,11 @@ loglevel 3
 # Right now vendor lives on the same filesystem as system,
 # but someday that may change.
     symlink /system/vendor /vendor
+    symlink /mnt/sdcard /sdcard
+
+# mount sdcard third partition on /part-3
+    mkdir /part-3
+    mount vfat /dev/block/mmcblk0p3 /part-3/
 
 # Create cgroup mount point for cpu accounting
     mkdir /acct
