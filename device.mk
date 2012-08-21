@@ -16,21 +16,15 @@
 
 
 PRODUCT_COPY_FILES := \
-	device/ti/am335xevm/init.rc:root/init.rc \
+	device/ti/am335xevm/init.am335xevm.rc:root/init.am335xevm.rc \
+	device/ti/am335xevm/init.am335xevm.usb.rc:root/init.am335xevm.usb.rc \
 	device/ti/am335xevm/ueventd.am335xevm.rc:root/ueventd.am335xevm.rc \
 	device/ti/am335xevm/vold.fstab:system/etc/vold.fstab \
-	frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-	frameworks/base/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
+	device/ti/am335xevm/media_codecs.xml:system/etc/media_codecs.xml
 
-# Bluetooth support
+# Hardware Features
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
-	system/bluetooth/data/main.nonsmartphone.conf:system/etc/bluetooth/main.conf
-
-# These are the hardware-specific features
-PRODUCT_COPY_FILES += \
-   frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
-   frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml
+	frameworks/native/data/etc/android.hardware.touchscreen.xml:system/etc/permissions/android.hardware.touchscreen.xml
 
 # KeyPads
 PRODUCT_COPY_FILES += \
@@ -38,10 +32,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/matrix-keypad.kl:system/usr/keylayout/matrix-keypad.kl
 
 PRODUCT_PROPERTY_OVERRIDES := \
-	wifi.interface=wlan0 \
 	hwui.render_dirty_regions=false
 
-PRODUCT_CHARACTERISTICS := tablet,nosdcard
+# Explicitly specify dpi, otherwise the icons don't show up correctly with SGX enabled
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.sf.lcd_density=160
+
+PRODUCT_CHARACTERISTICS := tablet
 
 DEVICE_PACKAGE_OVERLAYS := \
     device/ti/am335xevm/overlay
@@ -55,53 +52,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	libaudioutils
 
-# Bluetooth A2DP audio support
 PRODUCT_PACKAGES += \
-	audio.a2dp.default
-
-PRODUCT_PACKAGES += \
-        audio.primary.am335xevm \
-        tinycap \
-        tinymix \
-        tinyplay
-
-PRODUCT_PACKAGES += \
-	dhcpcd.conf \
-	hostapd.conf \
-	TQS_D_1.7.ini \
-	calibrator
-
-
-# Sensors
-PRODUCT_PACKAGES += \
-   sensors.am335xevm
-
-#Camera
-PRODUCT_PACKAGES += \
-        camera.omap3 \
-        Camera
+	dhcpcd.conf
 
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
 	make_ext4fs
 
-# BlueZ test tools
-PRODUCT_PACKAGES += \
-	hciconfig \
-	hcitool
-# Amazed Application : Accelerometer based game
-# Temperature Widget
-PRODUCT_PACKAGES += \
-	Amazed \
-	TemperatureWidget
-
-PRODUCT_PACKAGES += \
-	FileManager-1.1.6
-
-PRODUCT_PACKAGES += \
-	androidvncserver
-
-$(call inherit-product, frameworks/base/build/tablet-dalvik-heap.mk)
-$(call inherit-product-if-exists, hardware/ti/wlan/mac80211/firmware/wl12xx_wlan_fw_products.mk)
-$(call inherit-product-if-exists, hardware/ti/wpan/wl12xx-bluetooth/wl12xx_bt_products.mk)
+$(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
