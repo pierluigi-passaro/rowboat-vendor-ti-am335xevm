@@ -60,4 +60,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	make_ext4fs
 
+PRODUCT_PACKAGES += \
+	lights.am335xevm
+
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
