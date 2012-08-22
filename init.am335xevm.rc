@@ -41,6 +41,9 @@ on fs
     # This board has landscape LCD, enable rotation of keys on Navigation bar
     setprop lcd.landscape true
 
+    # This board does not have battery, force battery-level to 100%
+    setprop hw.nobattery true
+
 service pvr /system/bin/sgx/rc.pvr start
     class core
     oneshot
