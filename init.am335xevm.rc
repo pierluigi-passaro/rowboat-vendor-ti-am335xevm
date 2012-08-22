@@ -38,6 +38,10 @@ on fs
     # Backlight
     chown system system /sys/class/backlight/pwm-backlight/brightness
 
+    # Accelerometer sensor lis3lv02d-->input1
+    chown system system /sys/class/input/input1/poll
+    chmod 0600 /sys/class/input/input1/poll
+
     # This board has landscape LCD, enable rotation of keys on Navigation bar
     setprop lcd.landscape true
 
