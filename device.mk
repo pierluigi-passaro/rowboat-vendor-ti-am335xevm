@@ -64,4 +64,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	lights.am335xevm
 
+# Accelerometer-based demo game
+PRODUCT_PACKAGES += \
+	Amazed
+
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
