@@ -42,6 +42,10 @@ on fs
     chown system system /sys/class/input/input1/poll
     chmod 0600 /sys/class/input/input1/poll
 
+    # Temperature sensor LM75-->input4
+    chown system system /sys/class/input/input4/poll_delay
+    chmod 0600 /sys/class/input/input4/poll_delay
+
     # This board has landscape LCD, enable rotation of keys on Navigation bar
     setprop lcd.landscape true
 

@@ -31,6 +31,7 @@ LOCAL_SRC_FILES := \
     sensors.cpp                     \
     SensorBase.cpp                  \
     AccelSensor.cpp                 \
+    TempSensor.cpp                  \
     InputEventReader.cpp
 
 LOCAL_SHARED_LIBRARIES := liblog libcutils libdl

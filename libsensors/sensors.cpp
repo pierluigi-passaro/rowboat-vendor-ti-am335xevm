@@ -31,6 +31,7 @@
 #include "sensors.h"
 
 #include "AccelSensor.h"
+#include "TempSensor.h"
 
 /*****************************************************************************/
 
@@ -63,6 +64,10 @@ static const struct sensor_t sSensorList[] = {
 		"ST Microelectronics",
 		1, SENSORS_ACCELERATION_HANDLE,
 		SENSOR_TYPE_ACCELEROMETER, RANGE_A, RESOLUTION_A, 0.23f, 20000, { } },
+	{ "TMP275 Temperature sensor",
+		"Texas Instruments",
+		1, SENSORS_TEMPERATURE_HANDLE,
+		SENSOR_TYPE_TEMPERATURE, RANGE_T, RESOLUTION_T, 0.15f, 5000, { } },
 };
 
 
@@ -108,6 +113,7 @@ struct sensors_poll_context_t {
 	private:
 	enum {
 		accel           = 0,
+		temp		= 1,
 		numSensorDrivers,
 		numFds,
 	};
@@ -122,6 +128,8 @@ struct sensors_poll_context_t {
 		switch (handle) {
 			case ID_A:
 				return accel;
+			case ID_TEMP:
+				return temp;
 		}
 		return -EINVAL;
 	}
@@ -135,6 +143,11 @@ sensors_poll_context_t::sensors_poll_context_t()
 	mPollFds[accel].fd = mSensors[accel]->getFd();
 	mPollFds[accel].events = POLLIN;
 	mPollFds[accel].revents = 0;
+
+	mSensors[temp] = new TempSensor();
+	mPollFds[temp].fd = mSensors[temp]->getFd();
+	mPollFds[temp].events = POLLIN;
+	mPollFds[temp].revents = 0;
 
 	int wakeFds[2];
 	int result = pipe(wakeFds);
