@@ -22,6 +22,11 @@ PRODUCT_COPY_FILES := \
 	device/ti/am335xevm/vold.fstab:system/etc/vold.fstab \
 	device/ti/am335xevm/media_codecs.xml:system/etc/media_codecs.xml
 
+# Bluetooth support
+PRODUCT_COPY_FILES += \
+	frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
+	system/bluetooth/data/main.nonsmartphone.conf:system/etc/bluetooth/main.conf
+
 # Hardware Features
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.touchscreen.xml:system/etc/permissions/android.hardware.touchscreen.xml \
@@ -56,10 +61,18 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	dhcpcd.conf
 
+# Bluetooth A2DP audio support
+PRODUCT_PACKAGES += \
+	audio.a2dp.default
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
 	make_ext4fs
+
+# BlueZ test tools
+PRODUCT_PACKAGES += \
+	hciconfig \
+	hcitool
 
 PRODUCT_PACKAGES += \
 	lights.am335xevm
@@ -69,3 +82,4 @@ PRODUCT_PACKAGES += \
 	Amazed
 
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
+$(call inherit-product-if-exists, hardware/ti/wpan/wl12xx-bluetooth/wl12xx_bt_products.mk)
