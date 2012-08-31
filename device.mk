@@ -20,7 +20,9 @@ PRODUCT_COPY_FILES := \
 	device/ti/am335xevm/init.am335xevm.usb.rc:root/init.am335xevm.usb.rc \
 	device/ti/am335xevm/ueventd.am335xevm.rc:root/ueventd.am335xevm.rc \
 	device/ti/am335xevm/vold.fstab:system/etc/vold.fstab \
-	device/ti/am335xevm/media_codecs.xml:system/etc/media_codecs.xml
+	device/ti/am335xevm/media_codecs.xml:system/etc/media_codecs.xml \
+	device/ti/am335xevm/mixer_paths.xml:system/etc/mixer_paths.xml \
+	device/ti/am335xevm/audio_policy.conf:system/etc/audio_policy.conf
 
 # Bluetooth support
 PRODUCT_COPY_FILES += \
@@ -57,6 +59,12 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
 	libaudioutils
+
+PRODUCT_PACKAGES += \
+        audio.primary.am335xevm \
+        tinycap \
+        tinymix \
+        tinyplay
 
 PRODUCT_PACKAGES += \
 	dhcpcd.conf

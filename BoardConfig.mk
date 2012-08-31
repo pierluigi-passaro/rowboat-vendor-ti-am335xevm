@@ -16,7 +16,7 @@
 
 # These two variables are set first, so they can be overridden
 # by BoardConfigVendor.mk
-BOARD_USES_GENERIC_AUDIO := true
+#BOARD_USES_GENERIC_AUDIO := true
 USE_CAMERA_STUB := true
 BOARD_EGL_CFG := device/ti/am335xevm/egl.cfg
 
