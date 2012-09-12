@@ -22,6 +22,11 @@ PRODUCT_COPY_FILES := \
 	frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
 	frameworks/base/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
 
+# NFC support
+PRODUCT_COPY_FILES += \
+	frameworks/base/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
+	device/ti/am335xevm/nfcee_access.xml:system/etc/nfcee_access.xml
+
 # Bluetooth support
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
@@ -101,6 +106,20 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
 	androidvncserver
+
+#NFC
+PRODUCT_PACKAGES += \
+       libnfc \
+       libnfc_ndef \
+       libnfc_jni \
+       Nfc \
+       NFCDemo \
+       Tag \
+       TagTests \
+       TagCanon \
+       AndroidBeamDemo \
+       NfcExtrasTests \
+       com.android.nfc_extras
 
 $(call inherit-product, frameworks/base/build/tablet-dalvik-heap.mk)
 $(call inherit-product-if-exists, hardware/ti/wlan/mac80211/firmware/wl12xx_wlan_fw_products.mk)
