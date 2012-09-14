@@ -44,7 +44,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/matrix-keypad.kl:system/usr/keylayout/matrix-keypad.kl
 
 PRODUCT_PROPERTY_OVERRIDES := \
-	hwui.render_dirty_regions=false
+	hwui.render_dirty_regions=false \
+	persist.sys.usb.config=mtp,adb
 
 # Explicitly specify dpi, otherwise the icons don't show up correctly with SGX enabled
 PRODUCT_PROPERTY_OVERRIDES += \
