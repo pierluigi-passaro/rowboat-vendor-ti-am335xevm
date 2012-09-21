@@ -29,6 +29,10 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
 	system/bluetooth/data/main.nonsmartphone.conf:system/etc/bluetooth/main.conf
 
+# WLAN support
+PRODUCT_COPY_FILES +=\
+	frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml
+
 # Hardware Features
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.touchscreen.xml:system/etc/permissions/android.hardware.touchscreen.xml \
@@ -68,6 +72,19 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
 	dhcpcd.conf
+
+# WI-Fi
+PRODUCT_PACKAGES += \
+	hostapd.conf \
+	wifical.sh \
+	TQS_D_1.7.ini \
+	TQS_D_1.7_127x.ini \
+	crda \
+        regulatory.bin \
+	calibrator
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	 wifi.interface=wlan0
 
 # Bluetooth A2DP audio support
 PRODUCT_PACKAGES += \
