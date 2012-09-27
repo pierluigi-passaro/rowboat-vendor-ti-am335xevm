@@ -32,10 +32,14 @@
 
 #include "AccelSensor.h"
 #include "TempSensor.h"
+#include "LightSensor.h"
 
 /*****************************************************************************/
 
 #define DELAY_OUT_TIME 0x7FFFFFFF
+
+#define LIGHT_SENSOR_POLLTIME 2000000000
+
 
 #define SENSORS_ACCELERATION     (1<<ID_A)
 #define SENSORS_MAGNETIC_FIELD   (1<<ID_M)
@@ -68,6 +72,10 @@ static const struct sensor_t sSensorList[] = {
 		"Texas Instruments",
 		1, SENSORS_TEMPERATURE_HANDLE,
 		SENSOR_TYPE_TEMPERATURE, RANGE_T, RESOLUTION_T, 0.15f, 5000, { } },
+	{ "TSL2550 Light sensor",
+		"TAOS",
+		1, SENSORS_LIGHT_HANDLE,
+		SENSOR_TYPE_LIGHT,  powf(10, (280.0f / 47.0f)) * 4, 1.0f, 0.75f, 0, { } },
 };
 
 
@@ -112,8 +120,9 @@ struct sensors_poll_context_t {
 
 	private:
 	enum {
-		accel           = 0,
+		accel       = 0,
 		temp		= 1,
+		light       = 2,
 		numSensorDrivers,
 		numFds,
 	};
@@ -130,6 +139,8 @@ struct sensors_poll_context_t {
 				return accel;
 			case ID_TEMP:
 				return temp;
+			case ID_L:
+				return light;
 		}
 		return -EINVAL;
 	}
@@ -148,6 +159,11 @@ sensors_poll_context_t::sensors_poll_context_t()
 	mPollFds[temp].fd = mSensors[temp]->getFd();
 	mPollFds[temp].events = POLLIN;
 	mPollFds[temp].revents = 0;
+
+	mSensors[light] = new LightSensor();
+	mPollFds[light].fd = mSensors[light]->getFd();
+	mPollFds[light].events = POLLIN;
+	mPollFds[light].revents = 0;
 
 	int wakeFds[2];
 	int result = pipe(wakeFds);
