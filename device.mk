@@ -102,6 +102,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	lights.am335xevm
 
+PRODUCT_PACKAGES += \
+	sensors.am335xevm
+
 # Accelerometer-based demo game
 PRODUCT_PACKAGES += \
 	Amazed
