@@ -35,6 +35,10 @@
          autodetected from the Configuration. -->
     <bool name="config_showNavigationBar">true</bool>
 
+    <!-- Boolean indicating where bluetooth is always powered on but kept at
+             low power mode -->
+    <bool translatable="false" name="config_bluetooth_adapter_quick_switch">false</bool>
+
     <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
          The N entries of this array define N + 1 zones as follows:
 
