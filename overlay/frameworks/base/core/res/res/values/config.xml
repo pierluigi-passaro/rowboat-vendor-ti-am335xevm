@@ -27,6 +27,10 @@
     <!-- This device does not allow sms service. -->
     <bool name="config_sms_capable">false</bool>
 
+    <!-- Boolean indicating where bluetooth is always powered on but kept at
+             low power mode -->
+    <bool translatable="false" name="config_bluetooth_adapter_quick_switch">false</bool>
+
     <!-- Flag indicating whether we should enable the automatic brightness in Settings.
          config_hardware_automatic_brightness_available is not set, so we will use software implementation -->
     <bool name="config_automatic_brightness_available">true</bool>
