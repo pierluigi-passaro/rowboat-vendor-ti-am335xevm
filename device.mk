@@ -71,7 +71,8 @@ PRODUCT_PACKAGES += \
 	com.android.future.usb.accessory
 
 PRODUCT_PACKAGES += \
-	libaudioutils
+	libaudioutils \
+	libsrec_jni
 
 PRODUCT_PACKAGES += \
         audio.primary.am335xevm \
