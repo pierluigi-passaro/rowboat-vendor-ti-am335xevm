@@ -59,6 +59,10 @@ PRODUCT_PROPERTY_OVERRIDES := \
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.sf.lcd_density=160
 
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.sys.strictmode.visual=0 \
+	persist.sys.strictmode.disable=1
+
 PRODUCT_CHARACTERISTICS := tablet
 
 DEVICE_PACKAGE_OVERLAYS := \
