@@ -89,6 +89,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	dhcpcd.conf
 
+PRODUCT_PACKAGES += \
+	camera.omap3
+
 # WI-Fi
 PRODUCT_PACKAGES += \
 	hostapd.conf \

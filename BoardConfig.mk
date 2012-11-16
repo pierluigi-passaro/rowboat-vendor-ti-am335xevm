@@ -17,7 +17,8 @@
 # These two variables are set first, so they can be overridden
 # by BoardConfigVendor.mk
 #BOARD_USES_GENERIC_AUDIO := true
-USE_CAMERA_STUB := true
+#USE_CAMERA_STUB := true
+BOARD_USB_CAMERA := true
 BOARD_EGL_CFG := device/ti/am335xevm/egl.cfg
 
 TARGET_CPU_ABI := armeabi-v7a
