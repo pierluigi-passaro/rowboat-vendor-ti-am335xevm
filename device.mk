@@ -49,7 +49,8 @@ PRODUCT_COPY_FILES += \
 # KeyPads
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    $(LOCAL_PATH)/matrix-keypad.kl:system/usr/keylayout/matrix-keypad.kl
+    $(LOCAL_PATH)/matrix-keypad.kl:system/usr/keylayout/matrix-keypad.kl \
+    $(LOCAL_PATH)/ti-tsc.idc:system/usr/idc/ti-tsc.idc
 
 PRODUCT_PROPERTY_OVERRIDES := \
 	hwui.render_dirty_regions=false \
