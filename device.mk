@@ -105,6 +105,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	 wifi.interface=wlan0
+# BT
+ PRODUCT_PACKAGES += \
+	 libbt-vendor
 
 # Bluetooth A2DP audio support
 PRODUCT_PACKAGES += \
