@@ -42,7 +42,8 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
 	frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
 	frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
-	device/ti/am335xevm/android.hardware.screen.xml:system/etc/permissions/android.hardware.screen.xml
+	device/ti/am335xevm/android.hardware.screen.xml:system/etc/permissions/android.hardware.screen.xml \
+	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
 PRODUCT_COPY_FILES += \
 	device/ti/am335xevm/apns-full-conf.xml:system/etc/apns-conf.xml
