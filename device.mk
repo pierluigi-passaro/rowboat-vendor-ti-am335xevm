@@ -22,6 +22,7 @@ PRODUCT_COPY_FILES := \
 	device/ti/am335xevm/vold.fstab:system/etc/vold.fstab \
 	device/ti/am335xevm/fstab.am335xevm:root/fstab.am335xevm \
 	device/ti/am335xevm/media_codecs.xml:system/etc/media_codecs.xml \
+	device/ti/am335xevm/media_profiles.xml:system/etc/media_profiles.xml \
 	device/ti/am335xevm/mixer_paths.xml:system/etc/mixer_paths.xml \
 	device/ti/am335xevm/audio_policy.conf:system/etc/audio_policy.conf
 
