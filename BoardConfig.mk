@@ -64,9 +64,11 @@ WPA_SUPPLICANT_VERSION           := VER_0_8_X_TI
 ifeq ($(WILINK), wl18xx)
 WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/wlcore_sdio.ko"
 WIFI_DRIVER_MODULE_NAME          := "wlcore_sdio"
+CALIBRATOR			 := WL18xx
 else
 WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/wl12xx_sdio.ko"
 WIFI_DRIVER_MODULE_NAME          := "wl12xx_sdio"
+CALIBRATOR                       := WL12xx
 endif
 
 WIFI_FIRMWARE_LOADER             := ""
