@@ -25,7 +25,7 @@ TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
-ARCH_ARM_HAVE_TLS_REGISTER := true
+TARGET_CPU_VARIANT := cortex-a8
 
 TARGET_NO_KERNEL := true
 
@@ -52,26 +52,4 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 
 #TARGET_PROVIDES_INIT_RC := true
 
-# Connectivity - Wi-Fi
-USES_TI_MAC80211 := true
-ifdef USES_TI_MAC80211
-BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
-BOARD_HOSTAPD_DRIVER             := NL80211
-BOARD_WLAN_DEVICE                := wl12xx_mac80211
-BOARD_SOFTAP_DEVICE              := wl12xx_mac80211
-WPA_SUPPLICANT_VERSION           := VER_0_8_X_TI
-
-ifeq ($(WILINK), wl18xx)
-WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/wlcore_sdio.ko"
-WIFI_DRIVER_MODULE_NAME          := "wlcore_sdio"
-CALIBRATOR			 := WL18xx
-else
-WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/wl12xx_sdio.ko"
-WIFI_DRIVER_MODULE_NAME          := "wl12xx_sdio"
-CALIBRATOR                       := WL12xx
-endif
-
-WIFI_FIRMWARE_LOADER             := ""
-COMMON_GLOBAL_CFLAGS += -DUSES_TI_MAC80211
-endif
 
